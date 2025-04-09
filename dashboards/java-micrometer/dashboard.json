@@ -2831,7 +2831,10 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
         "includeAll": false,
@@ -2849,11 +2852,15 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+        
       },
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
         "includeAll": false,
@@ -2875,7 +2882,10 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 0,
         "includeAll": false,
@@ -2897,7 +2907,10 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 2,
         "includeAll": true,
@@ -2919,7 +2932,10 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 2,
         "includeAll": true,
@@ -2941,7 +2957,10 @@
       {
         "allFormat": "glob",
         "allValue": null,
-        "current": {},
+        "current": {
+          "text": "default",
+          "value": "default"
+        },
         "datasource": "${DS_PROMETHEUS}",
         "hide": 2,
         "includeAll": true,
