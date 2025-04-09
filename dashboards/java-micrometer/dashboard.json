@@ -2841,7 +2841,7 @@
         "name": "namespace",
         "options": [],
         "query": "label_values(jvm_info, namespace)",
-        "refresh": 2,
+        "refresh": 1,
         "regex": "",
         "sort": 0,
         "tagValuesQuery": "",
