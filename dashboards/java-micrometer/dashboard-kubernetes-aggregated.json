@@ -2927,7 +2927,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "JVM / Micrometer (Instance)",
-  "uid": "jvm-micrometer-kubernetes",
+  "title": "JVM / Micrometer (Aggregated)",
+  "uid": "jvm-micrometer-kubernetes-aggregated",
   "version": 1
 }
