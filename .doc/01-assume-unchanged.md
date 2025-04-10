@@ -1,3 +1,4 @@
-```
-git update-index --assume-unchanged caminho/do/arquivo
+
+```shell
+git update-index --assume-unchanged .devcontainer/grafana/provisioning/datasources/datasources.yaml
 ```
