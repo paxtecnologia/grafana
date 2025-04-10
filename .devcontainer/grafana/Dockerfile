@@ -7,7 +7,6 @@ ARG USER_GID=1000
 
 USER root
 
-# Instala utilitários e sudo
 RUN apk update && \
     apk add --no-cache \
       bash \
@@ -16,7 +15,8 @@ RUN apk update && \
       curl \
       vim \
       less \
-      shadow
+      shadow \
+      openssh
 
 # Cria grupo e usuário com shell bash
 RUN addgroup -g ${USER_GID} ${USERNAME} && \
