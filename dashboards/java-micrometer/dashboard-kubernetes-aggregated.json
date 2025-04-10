@@ -103,8 +103,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             }
           ],
           "thresholds": [],
@@ -199,8 +198,7 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             }
           ],
           "thresholds": [],
@@ -295,8 +293,7 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             }
           ],
           "thresholds": [],
@@ -393,24 +390,21 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             },
             {
               "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
-              "refId": "B",
-              "step": 2400
+              "refId": "B"
             },
             {
               "expr": "sum(jvm_memory_max_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
-              "refId": "C",
-              "step": 2400
+              "refId": "C"
             }
           ],
           "thresholds": [],
@@ -507,24 +501,21 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             },
             {
               "expr": "sum(jvm_memory_committed_bytes{application=\"$application\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
-              "refId": "B",
-              "step": 2400
+              "refId": "B"
             },
             {
               "expr": "sum(jvm_memory_max_bytes{application=\"$application\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
-              "refId": "C",
-              "step": 2400
+              "refId": "C"
             }
           ],
           "thresholds": [],
@@ -633,8 +624,7 @@
               "intervalFactor": 1,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             }            
           ],
           "thresholds": [],
@@ -828,8 +818,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A",
-              "step": 2400
+              "refId": "A"
             }
           ],
           "thresholds": [],
@@ -947,8 +936,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{instance}} {{level}}",
               "metric": "",
-              "refId": "A",
-              "step": 1200
+              "refId": "A"
             }
           ],
           "thresholds": [],
@@ -1229,8 +1217,7 @@
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A",
-              "step": 1200
+              "refId": "A"
             }
           ],
           "thresholds": [],
@@ -1328,8 +1315,7 @@
               "intervalFactor": 1,
               "legendFormat": "{{instance}}-delta-5m",
               "metric": "",
-              "refId": "A",
-              "step": 1200
+              "refId": "A"
             }
           ],
           "thresholds": [],
