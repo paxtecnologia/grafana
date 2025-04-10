@@ -2793,6 +2793,7 @@
         "name": "datasource",
         "options": [],
         "query": "prometheus",
+        "allowCustom": false,
         "refresh": 1,
         "regex": "",
         "type": "datasource"
@@ -2804,6 +2805,7 @@
           "uid": "${datasource}"
         },
         "hide": 0,
+        "allowCustom": false,
         "label": "Namespace",
         "name": "namespace",
         "options": [],
@@ -2819,6 +2821,7 @@
           "uid": "${datasource}"
         },
         "hide": 0,
+        "allowCustom": false,
         "label": "Application",
         "name": "application",
         "options": [],
@@ -2834,6 +2837,7 @@
           "uid": "${datasource}"
         },
         "hide": 0,
+        "allowCustom": false,
         "label": "Instance",
         "name": "instance",
         "options": [],
