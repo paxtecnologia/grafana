@@ -81,7 +81,8 @@
             "min": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": true,
+            "sort": "max"
           },
           "lines": true,
           "linewidth": 1,
@@ -113,7 +114,7 @@
           "tooltip": {
             "msResolution": false,
             "shared": true,
-            "sort": 0,
+            "sort": 2,
             "value_type": "cumulative"
           },
           "type": "graph",
