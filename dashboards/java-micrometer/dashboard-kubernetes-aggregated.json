@@ -1009,7 +1009,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 6,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1107,7 +1107,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 6,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1204,7 +1204,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1321,16 +1321,16 @@
             }
           ],
           "spaceLength": 10,
-          "span": 6,
+          "span": 12,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "increase(logback_events_total{application=\"$application\"}[5m])",
+              "expr": "sum by (instance) (increase(logback_events_total{application=\"$application\"}[5m]))",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "{{instance}} {{level}}",
+              "legendFormat": "{{instance}}",
               "metric": "",
               "refId": "A"
             }
@@ -1427,11 +1427,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m])",
+              "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m]))",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "{{instance}} {{action}} ({{cause}})",
+              "legendFormat": "{{instance}}",
               "refId": "A"
             }
           ],
@@ -1506,12 +1506,12 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])/rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m])",
+              "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])/rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m]))",
               "format": "time_series",
               "hide": false,
               "instant": false,
               "intervalFactor": 1,
-              "legendFormat": "{{instance}} avg {{action}} ({{cause}})",
+              "legendFormat": "{{instance}}",
               "refId": "A"
             }            
           ],
