@@ -82,7 +82,8 @@
             "show": true,
             "total": false,
             "values": true,
-            "sort": "max"
+            "sort": "max",
+            "sortDesc": true
           },
           "lines": true,
           "linewidth": 1,
