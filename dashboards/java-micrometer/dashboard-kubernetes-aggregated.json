@@ -37,21 +37,6 @@
         "name": "Annotations & Alerts",
         "showIn": 0,
         "type": "dashboard"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "enable": true,
-        "expr": "resets(process_uptime_seconds{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[5m]) > 0",
-        "iconColor": "rgba(255, 96, 96, 1)",
-        "name": "Restart Detection",
-        "showIn": 0,
-        "step": "5m",
-        "tagKeys": "restart-tag",
-        "textFormat": "uptime reset",
-        "titleFormat": "Restart"
       }
     ]
   },
@@ -64,8 +49,6 @@
   "links": [],
   "refresh": "30s",
   "rows": [
-  
-   
     {
       "collapse": false,
       "height": "250px",
@@ -115,7 +98,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"heap\"})",
+              "expr": "sum(jvm_memory_used_bytes{application=\"$application\", area=\"heap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "used",
@@ -124,7 +107,7 @@
               "step": 2400
             },
             {
-              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"heap\"})",
+              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", area=\"heap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
@@ -132,7 +115,7 @@
               "step": 2400
             },
             {
-              "expr": "sum(jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"heap\"})",
+              "expr": "sum(jvm_memory_max_bytes{application=\"$application\", area=\"heap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
@@ -228,7 +211,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"nonheap\"})",
+              "expr": "sum(jvm_memory_used_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -238,7 +221,7 @@
               "step": 2400
             },
             {
-              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"nonheap\"})",
+              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
@@ -246,7 +229,7 @@
               "step": 2400
             },
             {
-              "expr": "sum(jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"nonheap\"})",
+              "expr": "sum(jvm_memory_max_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
@@ -343,7 +326,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"})",
+              "expr": "sum(jvm_memory_used_bytes{application=\"$application\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "used",
@@ -352,7 +335,7 @@
               "step": 2400
             },
             {
-              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"})",
+              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
@@ -360,7 +343,7 @@
               "step": 2400
             },
             {
-              "expr": "sum(jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"})",
+              "expr": "sum(jvm_memory_max_bytes{application=\"$application\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
@@ -468,7 +451,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "system_cpu_usage{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
+              "expr": "system_cpu_usage{application=\"$application\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -478,7 +461,7 @@
               "step": 2400
             },
             {
-              "expr": "process_cpu_usage{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
+              "expr": "process_cpu_usage{application=\"$application\"}",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -486,7 +469,7 @@
               "refId": "B"
             },
             {
-              "expr": "avg_over_time(process_cpu_usage{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[15m])",
+              "expr": "avg_over_time(process_cpu_usage{application=\"$application\"}[15m])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -583,7 +566,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "system_load_average_1m{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
+              "expr": "system_load_average_1m{application=\"$application\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "system-1m",
@@ -592,7 +575,7 @@
               "step": 2400
             },
             {
-              "expr": "system_cpu_count{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
+              "expr": "system_cpu_count{application=\"$application\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "cpus",
@@ -643,9 +626,6 @@
             }
           ]
         },
-        
-        
-        
         {
           "aliasColors": {
             "debug": "#1F78C1",
@@ -711,7 +691,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "increase(logback_events_total{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[5m])",
+              "expr": "increase(logback_events_total{application=\"$application\"}[5m])",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -766,7 +746,6 @@
             }
           ]
         }
-        
       ],
       "repeat": null,
       "repeatIteration": null,
@@ -775,8 +754,6 @@
       "title": "JVM Misc",
       "titleSize": "h6"
     },
-    
-    
     {
       "collapse": false,
       "height": 250,
@@ -816,7 +793,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(jvm_gc_pause_seconds_count{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[5m])",
+              "expr": "rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m])",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
@@ -895,7 +872,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(jvm_gc_pause_seconds_sum{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[5m])/rate(jvm_gc_pause_seconds_count{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[5m])",
+              "expr": "rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])/rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m])",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -904,7 +881,7 @@
               "refId": "A"
             },
             {
-              "expr": "jvm_gc_pause_seconds_max{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
+              "expr": "jvm_gc_pause_seconds_max{application=\"$application\"}",
               "format": "time_series",
               "hide": false,
               "instant": false,
@@ -948,7 +925,7 @@
               "show": true
             }
           ]
-        }       
+        }
       ],
       "repeat": null,
       "repeatIteration": null,
@@ -1006,7 +983,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "jvm_classes_loaded_classes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
+              "expr": "jvm_classes_loaded_classes{application=\"$application\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "loaded",
@@ -1103,7 +1080,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "delta(jvm_classes_loaded_classes{application=\"$application\", namespace=\"$namespace\",instance=\"$instance\"}[5m])",
+              "expr": "delta(jvm_classes_loaded_classes{application=\"$application\"}[5m])",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -1165,7 +1142,7 @@
       "showTitle": true,
       "title": "Classloading",
       "titleSize": "h6"
-    }    
+    }
   ],
   "schemaVersion": 14,
   "style": "dark",
@@ -1195,90 +1172,10 @@
         },
         "hide": 0,
         "allowCustom": false,
-        "label": "Namespace",
-        "name": "namespace",
-        "options": [],
-        "query": "label_values(jvm_info, namespace)",
-        "refresh": 2,
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "hide": 0,
-        "allowCustom": false,
         "label": "Application",
         "name": "application",
         "options": [],
-        "query": "label_values(jvm_info{namespace=\"$namespace\"}, application)",
-        "refresh": 2,
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "hide": 0,
-        "allowCustom": false,
-        "label": "Instance",
-        "name": "instance",
-        "options": [],
-        "query": "label_values(jvm_info{application=\"$application\", namespace=\"$namespace\"}, instance)",
-        "refresh": 2,
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "hide": 2,
-        "includeAll": true,
-        "label": "JVM Memory Pools Heap",
-        "name": "jvm_memory_pool_heap",
-        "options": [],
-        "query": "label_values(jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"heap\"},id)",
-        "refresh": 2,
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "hide": 2,
-        "includeAll": true,
-        "label": "JVM Memory Pools Non-Heap",
-        "name": "jvm_memory_pool_nonheap",
-        "options": [],
-        "query": "label_values(jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"nonheap\"},id)",
-        "refresh": 2,
-        "sort": 2,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "hide": 2,
-        "includeAll": true,
-        "label": "JVM Buffer Pools",
-        "name": "jvm_buffer_pool",
-        "options": [],
-        "query": "label_values(jvm_buffer_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"},id)",
+        "query": "label_values(jvm_info{}, application)",
         "refresh": 2,
         "sort": 1,
         "type": "query"
