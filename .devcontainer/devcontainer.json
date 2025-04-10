@@ -6,7 +6,12 @@
     "remoteUser": "dev-user",
     "customizations": {
       "vscode": {
-        "extensions": ["grafana.vscode-grafana-datasource"]
+        "extensions": [
+            "grafana.vscode-grafana-datasource",
+            "ms-azuretools.vscode-docker",
+            "donjayamanne.githistory",
+            "mhutchie.git-graph"
+        ]
       }
     }
   }
