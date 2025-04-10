@@ -1506,7 +1506,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])) / sum by(instance) (rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m]))",
+              "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])) / clamp_min(sum by(instance) (rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m])),1)",
               "format": "time_series",
               "hide": false,
               "instant": false,
