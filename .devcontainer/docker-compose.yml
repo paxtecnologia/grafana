@@ -1,10 +1,13 @@
 services:
   grafana:
-    image: grafana/grafana-oss:latest
+    build:
+      context: ..
+      dockerfile: .devcontainer/grafana/Dockerfile
     container_name: grafana-dev
     ports:
       - "3000:3000"
     volumes:
+      - ..:/workspace:rw
       # Mounta os dashboards reais do seu projeto
       - ../dashboards:/var/lib/grafana/dashboards
 

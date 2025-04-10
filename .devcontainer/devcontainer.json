@@ -3,6 +3,7 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "grafana",
     "workspaceFolder": "/workspace",
+    "remoteUser": "dev-user",
     "customizations": {
       "vscode": {
         "extensions": ["grafana.vscode-grafana-datasource"]
