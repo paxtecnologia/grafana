@@ -849,7 +849,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -962,7 +962,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1077,7 +1077,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1955,7 +1955,7 @@
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
-          "repeat": "jvm_memory_pool_heap",
+          "repeat": "jvm_memory_pool_",
           "seriesOverrides": [],
           "spaceLength": 10,
           "span": 4,
@@ -1963,7 +1963,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_heap\"}",
+              "expr": "jvm_memory_used_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -1974,7 +1974,7 @@
               "step": 1800
             },
             {
-              "expr": "jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_heap\"}",
+              "expr": "jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -1985,7 +1985,7 @@
               "step": 1800
             },
             {
-              "expr": "jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_heap\"}",
+              "expr": "jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_\"}",
               "format": "time_series",
               "hide": false,
               "interval": "",
