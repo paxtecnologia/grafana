@@ -1,0 +1,11 @@
+{
+    "name": "Grafana DevContainer",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "grafana",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+      "vscode": {
+        "extensions": ["grafana.vscode-grafana-datasource"]
+      }
+    }
+  }

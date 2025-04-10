@@ -1,0 +1,19 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mounta os dashboards reais do seu projeto
+      - ../dashboards:/var/lib/grafana/dashboards
+
+      # Provisionamento: dashboards
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+
+      # Provisionamento: datasources
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
