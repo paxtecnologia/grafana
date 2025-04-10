@@ -2928,6 +2928,6 @@
   },
   "timezone": "browser",
   "title": "JVM / Micrometer (Aggregated)",
-  "uid": "jvm-micrometer-kubernetes-aggregated",
+  "uid": "d74e2c9a31bf46ecb84a0f3e59a7c412",
   "version": 1
 }
