@@ -545,7 +545,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(http_server_requests_seconds_count{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", status=~\"5..\"}[5m]))",
+              "expr": "sum(rate(http_server_requests_seconds_count{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", status=~\"5..\"}[5m])) or vector(0)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "HTTP - 5xx",
