@@ -98,7 +98,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(jvm_memory_used_bytes{application=\"$application\", area=\"heap\"})",
+              "expr": "jvm_memory_used_bytes{application=\"$application\", area=\"heap\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
@@ -195,11 +195,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", area=\"heap\"})",
+              "expr": "jvm_memory_committed_bytes{application=\"$application\", area=\"heap\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "B",
+              "refId": "A",
               "step": 2400
             }
           ],
@@ -291,11 +291,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(jvm_memory_max_bytes{application=\"$application\", area=\"heap\"})",
+              "expr": "jvm_memory_max_bytes{application=\"$application\", area=\"heap\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "C",
+              "refId": "A",
               "step": 2400
             }
           ],
