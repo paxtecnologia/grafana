@@ -569,17 +569,10 @@
               "expr": "system_load_average_1m{application=\"$application\"}",
               "format": "time_series",
               "intervalFactor": 2,
-              "legendFormat": "system-1m",
+              "legendFormat": "{{instance}}",
               "metric": "",
               "refId": "A",
               "step": 2400
-            },
-            {
-              "expr": "system_cpu_count{application=\"$application\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "cpus",
-              "refId": "B"
             }
           ],
           "thresholds": [],
