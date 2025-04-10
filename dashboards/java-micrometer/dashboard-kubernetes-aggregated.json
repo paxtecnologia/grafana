@@ -1422,7 +1422,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1501,12 +1501,12 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])/rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m]))",
+              "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_sum{application=\"$application\"}[5m])) / sum by(instance) (rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m]))",
               "format": "time_series",
               "hide": false,
               "instant": false,
