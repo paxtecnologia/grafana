@@ -769,7 +769,7 @@
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
-              "legendFormat": "{{level}}",
+              "legendFormat": "{{instance}} {{level}}",
               "metric": "",
               "refId": "A",
               "step": 1200
@@ -871,7 +871,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "{{action}} ({{cause}})",
+              "legendFormat": "{{instance}} {{action}} ({{cause}})",
               "refId": "A"
             }
           ],
@@ -951,18 +951,9 @@
               "hide": false,
               "instant": false,
               "intervalFactor": 1,
-              "legendFormat": "avg {{action}} ({{cause}})",
+              "legendFormat": "{{instance}} avg {{action}} ({{cause}})",
               "refId": "A"
-            },
-            {
-              "expr": "jvm_gc_pause_seconds_max{application=\"$application\"}",
-              "format": "time_series",
-              "hide": false,
-              "instant": false,
-              "intervalFactor": 1,
-              "legendFormat": "max {{action}} ({{cause}})",
-              "refId": "B"
-            }
+            }            
           ],
           "thresholds": [],
           "timeFrom": null,
@@ -1060,7 +1051,7 @@
               "expr": "jvm_classes_loaded_classes{application=\"$application\"}",
               "format": "time_series",
               "intervalFactor": 2,
-              "legendFormat": "loaded",
+              "legendFormat": "{{instance}}",
               "metric": "",
               "refId": "A",
               "step": 1200
@@ -1159,7 +1150,7 @@
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "delta-5m",
+              "legendFormat": "{{instance}}-delta-5m",
               "metric": "",
               "refId": "A",
               "step": 1200
