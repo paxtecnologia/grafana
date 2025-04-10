@@ -1438,7 +1438,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Collections",
+          "title": "Quantity of GC events",
           "tooltip": {
             "shared": true,
             "sort": 0,
