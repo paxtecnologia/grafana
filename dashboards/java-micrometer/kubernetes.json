@@ -135,7 +135,8 @@
               "intervalFactor": 2,
               "legendFormat": "",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": "",
@@ -220,7 +221,8 @@
               "intervalFactor": 2,
               "legendFormat": "",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": "",
@@ -303,7 +305,8 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": "70,90",
@@ -390,7 +393,8 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": "70,90",
@@ -462,7 +466,8 @@
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "HTTP",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -544,7 +549,8 @@
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "HTTP - 5xx",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -624,7 +630,8 @@
               "hide": false,
               "intervalFactor": 1,
               "legendFormat": "HTTP - AVG",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "max(http_server_requests_seconds_max{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", status!~\"5..\"})",
@@ -713,7 +720,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "TOMCAT - BSY",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "tomcat_threads_current_threads{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -721,7 +729,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "TOMCAT - CUR",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "tomcat_threads_config_max_threads{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -729,7 +738,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "TOMCAT - MAX",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             },
             {
               "expr": "jetty_threads_busy{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -737,7 +747,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "JETTY - BSY",
-              "refId": "D"
+              "refId": "D",
+              "step": "1m"
             },
             {
               "expr": "jetty_threads_current{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -745,7 +756,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "JETTY - CUR",
-              "refId": "E"
+              "refId": "E",
+              "step": "1m"
             },
             {
               "expr": "jetty_threads_config_max{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -753,7 +765,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "JETTY - MAX",
-              "refId": "F"
+              "refId": "F",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -854,21 +867,24 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"heap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "sum(jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"heap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -965,21 +981,24 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"nonheap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "sum(jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", area=\"nonheap\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1076,21 +1095,24 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "sum(jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "committed",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "sum(jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"})",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "max",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1199,7 +1221,8 @@
               "intervalFactor": 1,
               "legendFormat": "system",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "process_cpu_usage{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -1207,7 +1230,8 @@
               "hide": false,
               "intervalFactor": 1,
               "legendFormat": "process",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "avg_over_time(process_cpu_usage{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[15m])",
@@ -1215,7 +1239,8 @@
               "hide": false,
               "intervalFactor": 1,
               "legendFormat": "process-15m",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1312,14 +1337,16 @@
               "intervalFactor": 2,
               "legendFormat": "system-1m",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "system_cpu_count{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "cpus",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1416,7 +1443,8 @@
               "intervalFactor": 2,
               "legendFormat": "live",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "jvm_threads_daemon_threads{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -1424,14 +1452,16 @@
               "intervalFactor": 2,
               "legendFormat": "daemon",
               "metric": "",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "jvm_threads_peak_threads{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "peak",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             },
             {
               "expr": "process_threads{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -1439,7 +1469,8 @@
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "process",
-              "refId": "D"
+              "refId": "D",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1534,7 +1565,8 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "{{state}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1613,7 +1645,8 @@
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "CPU time spent on GC",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1724,7 +1757,8 @@
               "intervalFactor": 2,
               "legendFormat": "{{level}}",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1823,7 +1857,8 @@
               "intervalFactor": 2,
               "legendFormat": "open",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "process_files_max_files{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -1832,7 +1867,8 @@
               "intervalFactor": 2,
               "legendFormat": "max",
               "metric": "",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -1947,7 +1983,8 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_heap\"}",
@@ -1957,7 +1994,8 @@
               "intervalFactor": 2,
               "legendFormat": "commited",
               "metric": "",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_heap\"}",
@@ -1967,7 +2005,8 @@
               "intervalFactor": 2,
               "legendFormat": "max",
               "metric": "",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2081,7 +2120,8 @@
               "intervalFactor": 2,
               "legendFormat": "used",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "jvm_memory_committed_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_nonheap\"}",
@@ -2091,7 +2131,8 @@
               "intervalFactor": 2,
               "legendFormat": "commited",
               "metric": "",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "jvm_memory_max_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_memory_pool_nonheap\"}",
@@ -2101,7 +2142,8 @@
               "intervalFactor": 2,
               "legendFormat": "max",
               "metric": "",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2199,7 +2241,8 @@
               "hide": false,
               "intervalFactor": 1,
               "legendFormat": "{{action}} ({{cause}})",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2279,7 +2322,8 @@
               "instant": false,
               "intervalFactor": 1,
               "legendFormat": "avg {{action}} ({{cause}})",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "jvm_gc_pause_seconds_max{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}",
@@ -2288,7 +2332,8 @@
               "instant": false,
               "intervalFactor": 1,
               "legendFormat": "max {{action}} ({{cause}})",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2367,7 +2412,8 @@
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "allocated",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "rate(jvm_gc_memory_promoted_bytes_total{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\"}[5m])",
@@ -2375,7 +2421,8 @@
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "promoted",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2476,7 +2523,8 @@
               "intervalFactor": 2,
               "legendFormat": "loaded",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2574,7 +2622,8 @@
               "intervalFactor": 1,
               "legendFormat": "delta-5m",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             }
           ],
           "thresholds": [],
@@ -2683,14 +2732,16 @@
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "used",
-              "refId": "A"
+              "refId": "A",
+              "step": "1m"
             },
             {
               "expr": "jvm_buffer_total_capacity_bytes{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_buffer_pool\"}",
               "format": "time_series",
               "intervalFactor": 2,
               "legendFormat": "capacity",
-              "refId": "B"
+              "refId": "B",
+              "step": "1m"
             },
             {
               "expr": "jvm_buffer_count_buffers{application=\"$application\", namespace=\"$namespace\", instance=\"$instance\", id=~\"$jvm_buffer_pool\"}",
@@ -2698,7 +2749,8 @@
               "hide": false,
               "intervalFactor": 2,
               "legendFormat": "buffers",
-              "refId": "C"
+              "refId": "C",
+              "step": "1m"
             }
           ],
           "thresholds": [],
