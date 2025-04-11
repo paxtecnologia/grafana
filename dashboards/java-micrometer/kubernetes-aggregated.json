@@ -102,10 +102,10 @@
             {
               "expr": "sum by (instance) (jvm_memory_used_bytes{application=\"$application\", area=\"heap\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -200,9 +200,9 @@
             {
               "expr": "sum by (instance) (jvm_memory_committed_bytes{application=\"$application\", area=\"heap\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -297,9 +297,9 @@
             {
               "expr": "sum by (instance) (jvm_memory_max_bytes{application=\"$application\", area=\"heap\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -407,9 +407,9 @@
               "expr": "sum by (instance) (jvm_memory_used_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
               "interval": "",
-              "intervalFactor": 2,
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -504,10 +504,10 @@
             {
               "expr": "sum by (instance) (jvm_memory_committed_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A"
-            }            
+              "refId": "A",
+              "step": "60"
+            }
           ],
           "thresholds": [],
           "timeFrom": null,
@@ -601,9 +601,9 @@
             {
               "expr": "sum by (instance) (jvm_memory_max_bytes{application=\"$application\", area=\"nonheap\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -649,7 +649,6 @@
             }
           ]
         }
-        
       ],
       "repeat": null,
       "repeatIteration": null,
@@ -712,10 +711,10 @@
             {
               "expr": "sum by (instance) (jvm_memory_used_bytes{application=\"$application\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -811,9 +810,9 @@
             {
               "expr": "sum by (instance) (jvm_memory_committed_bytes{application=\"$application\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -909,9 +908,9 @@
             {
               "expr": "sum by (instance) (jvm_memory_max_bytes{application=\"$application\"})",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -1017,11 +1016,11 @@
               "expr": "system_cpu_usage{application=\"$application\"}",
               "format": "time_series",
               "hide": false,
-              "intervalFactor": 1,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A"
-            }            
+              "refId": "A",
+              "step": "60"
+            }
           ],
           "thresholds": [],
           "timeFrom": null,
@@ -1115,9 +1114,9 @@
               "expr": "process_cpu_usage{application=\"$application\"}",
               "format": "time_series",
               "hide": false,
-              "intervalFactor": 1,
               "legendFormat": "{{instance}}",
-              "refId": "B"
+              "refId": "B",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -1211,10 +1210,10 @@
             {
               "expr": "system_load_average_1m{application=\"$application\"}",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -1329,10 +1328,10 @@
               "expr": "sum by (instance) (increase(logback_events_total{application=\"$application\"}[5m]))",
               "format": "time_series",
               "interval": "",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -1430,9 +1429,9 @@
               "expr": "sum by(instance) (rate(jvm_gc_pause_seconds_count{application=\"$application\"}[5m]))",
               "format": "time_series",
               "hide": false,
-              "intervalFactor": 1,
               "legendFormat": "{{instance}}",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -1510,10 +1509,10 @@
               "format": "time_series",
               "hide": false,
               "instant": false,
-              "intervalFactor": 1,
               "legendFormat": "{{instance}}",
-              "refId": "A"
-            }            
+              "refId": "A",
+              "step": "60"
+            }
           ],
           "thresholds": [],
           "timeFrom": null,
@@ -1610,10 +1609,10 @@
             {
               "expr": "jvm_classes_loaded_classes{application=\"$application\"}",
               "format": "time_series",
-              "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
@@ -1708,10 +1707,10 @@
               "format": "time_series",
               "hide": false,
               "interval": "",
-              "intervalFactor": 1,
               "legendFormat": "{{instance}}-delta-5m",
               "metric": "",
-              "refId": "A"
+              "refId": "A",
+              "step": "60"
             }
           ],
           "thresholds": [],
