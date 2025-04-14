@@ -807,9 +807,9 @@
           "showLegend": true
         },
         "tooltip": {
-          "hideZeros": false,
+          "hideZeros": true,
           "mode": "multi",
-          "sort": "none"
+          "sort": "desc"
         }
       },
       "pluginVersion": "11.6.0",
@@ -819,9 +819,9 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (instance)(rate(kafka_network_RequestMetrics_Count{name=\"ErrorsPerSec\"}[5m]))",
+          "expr": "sum by (instance,error)(rate(kafka_network_RequestMetrics_Count{name=\"ErrorsPerSec\", error!=\"NONE\"}[5m]))",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{instance}} - {{error}}",
           "refId": "B"
         }
       ],
