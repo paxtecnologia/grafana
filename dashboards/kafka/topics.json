@@ -24,7 +24,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "aehmxqn43zjeod"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -39,8 +39,8 @@
             "axisPlacement": "auto",
             "barAlignment": 0,
             "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
+            "fill": 0,
+            "points": false,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
@@ -50,11 +50,10 @@
             "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointradius": 2,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -64,54 +63,41 @@
               "mode": "off"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
+          "mappings": []
         },
         "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 24,
+        "w": 6,
         "x": 0,
         "y": 0
       },
       "id": 4,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
+      "legend": {
+        "calcs": [],
+        "displayMode": "list",
+        "placement": "bottom",
+        "showLegend": true
       },
       "pluginVersion": "11.6.0",
       "targets": [
         {
-          "editorMode": "code",
-          "expr": "sum by(topic) (\n  rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\", topic=~\"$topic\"}[1m])\n)",
-          "legendFormat": "__auto",
+          "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\", topic=~\"$topic\"}[1m]))",
+          "format": "time_series",
+          "legendFormat": "{{topic}}",
           "range": true,
-          "refId": "A"
+          "refId": "A",
+          "step": "60"
         }
       ],
-      "title": "MessagesInPerSec - 1",
-      "type": "timeseries"
+      "title": "Messages In Per Sec",
+      "type": "timeseries",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      }
     },
     {
       "datasource": {
@@ -125,37 +111,12 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "pointSize": 3,
+            "showPoints": "always",
+            "spanNulls": false
           },
           "mappings": [],
           "thresholds": {
@@ -189,7 +150,6 @@
           "showLegend": true
         },
         "tooltip": {
-          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
@@ -203,7 +163,7 @@
           },
           "editorMode": "code",
           "expr": "sum by (topic) (kafka_log_Log_Value{name=\"Size\",topic=~\"$topic\"})",
-          "legendFormat": "__auto",
+          "legendFormat": "{{topic}}",
           "range": true,
           "refId": "A"
         }
@@ -229,7 +189,6 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
-            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -342,7 +301,7 @@
             "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
-            "gradientMode": "none",
+            "fillGradient": 0,
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -352,9 +311,6 @@
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
             "showPoints": "auto",
             "spanNulls": false,
             "stacking": {
@@ -365,6 +321,12 @@
               "mode": "off"
             }
           },
+          "yaxes": [
+            {
+              "format": "short",
+              "logBase": 1
+            }
+          ],
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -425,14 +387,12 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "text": "crmbonus-prometheus",
-          "value": "aehmxqn43zjeod"
-        },
-        "label": "datasource",
+        "current": {},
+        "label": "Data source",
         "name": "datasource",
         "options": [],
         "query": "prometheus",
+        "allowCustom": false,
         "refresh": 1,
         "regex": "",
         "type": "datasource"
@@ -456,7 +416,7 @@
           "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "sort": 1,
         "type": "query"
