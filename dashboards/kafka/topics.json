@@ -10,7 +10,7 @@
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
+        "name": "Anotações e Alertas",
         "type": "dashboard"
       }
     ]
@@ -30,191 +30,201 @@
         "y": 0
       },
       "id": 7,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
+      "title": "Métricas de Throughput",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "Mostra a taxa de mensagens recebidas por segundo em cada tópico Kafka (Métrica: MessagesInPerSec). Útil para identificar picos de produção ou problemas nos produtores.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
           },
-          "description": "Mostra a taxa de mensagens recebidas por segundo em cada tópico Kafka (Métrica: MessagesInPerSec). Útil para identificar picos de produção ou problemas nos produtores.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "drawStyle": "line",
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 3,
-                "showPoints": "always",
-                "spanNulls": false
-              },
-              "mappings": []
-            },
-            "overrides": []
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "showPoints": "always",
+            "spanNulls": false
           },
-          "gridPos": {
-            "h": 10,
-            "w": 6,
-            "x": 0,
-            "y": 1
-          },
-          "id": 4,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last",
-                "max"
-              ],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "hideZeros": true,
-              "mode": "multi",
-              "sort": "desc"
-            }
-          },
-          "pluginVersion": "11.6.0",
-          "targets": [
-            {
-              "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\", topic=~\"$topic\"}[1m]))",
-              "format": "time_series",
-              "legendFormat": "{{topic}}",
-              "range": true,
-              "refId": "A",
-              "step": "60"
-            }
-          ],
-          "title": "Messages In Per Sec",
-          "type": "timeseries"
+          "mappings": []
         },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "description": "Mostra a taxa de bytes recebidos por segundo em cada tópico Kafka (Métrica: BytesInPerSec). Útil para monitorar o volume de dados ingressantes.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "drawStyle": "line",
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 3,
-                "showPoints": "always",
-                "spanNulls": false
-              },
-              "mappings": [],
-              "unit": "Bps"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 6,
-            "x": 6,
-            "y": 1
-          },
-          "id": 6,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last",
-                "max"
-              ],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "hideZeros": true,
-              "mode": "multi",
-              "sort": "desc"
-            }
-          },
-          "pluginVersion": "11.6.0",
-          "targets": [
-            {
-              "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic=~\"$topic\"}[1m]))",
-              "format": "time_series",
-              "legendFormat": "{{topic}}",
-              "range": true,
-              "refId": "A",
-              "step": "60"
-            }
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "max"
           ],
-          "title": "Bytes In Per Sec",
-          "type": "timeseries"
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "description": "Mostra a taxa de bytes enviados por segundo em cada tópico Kafka (Métrica: BytesOutPerSec). Útil para monitorar o volume de dados egressantes.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "drawStyle": "line",
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 3,
-                "showPoints": "always",
-                "spanNulls": false
-              },
-              "mappings": [],
-              "unit": "Bps"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 6,
-            "x": 12,
-            "y": 1
-          },
-          "id": 8,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last",
-                "max"
-              ],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "hideZeros": true,
-              "mode": "multi",
-              "sort": "desc"
-            }
-          },
-          "pluginVersion": "11.6.0",
-          "targets": [
-            {
-              "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\", topic=~\"$topic\"}[1m]))",
-              "format": "time_series",
-              "legendFormat": "{{topic}}",
-              "range": true,
-              "refId": "A",
-              "step": "60"
-            }
-          ],
-          "title": "Bytes Out Per Sec",
-          "type": "timeseries"
+          "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\", topic=~\"$topic\"}[1m]))",
+          "format": "time_series",
+          "legendFormat": "{{topic}}",
+          "range": true,
+          "refId": "A",
+          "step": "60"
         }
       ],
-      "title": "Throughput Metrics",
+      "title": "Mensagens por Segundo (Entrada)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "Mostra a taxa de bytes recebidos por segundo em cada tópico Kafka (Métrica: BytesInPerSec). Útil para monitorar o volume de dados ingressantes.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "showPoints": "always",
+            "spanNulls": false
+          },
+          "mappings": [],
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic=~\"$topic\"}[1m]))",
+          "format": "time_series",
+          "legendFormat": "{{topic}}",
+          "range": true,
+          "refId": "A",
+          "step": "60"
+        }
+      ],
+      "title": "Bytes por Segundo (Entrada)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "Mostra a taxa de bytes enviados por segundo em cada tópico Kafka (Métrica: BytesOutPerSec). Útil para monitorar o volume de dados egressantes.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "showPoints": "always",
+            "spanNulls": false
+          },
+          "mappings": [],
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\", topic=~\"$topic\"}[1m]))",
+          "format": "time_series",
+          "legendFormat": "{{topic}}",
+          "range": true,
+          "refId": "A",
+          "step": "60"
+        }
+      ],
+      "title": "Bytes por Segundo (Saída)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 9,
+      "title": "Métricas de Armazenamento e Consumo",
       "type": "row"
     },
     {
@@ -237,15 +247,15 @@
             "spanNulls": true
           },
           "mappings": [],
-          "unit": "ops"
+          "unit": "bytes"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
+        "h": 10,
+        "w": 12,
         "x": 0,
-        "y": 11
+        "y": 12
       },
       "id": 3,
       "options": {
@@ -275,7 +285,7 @@
           "refId": "A"
         }
       ],
-      "title": "Tamanho Total dos Logs por Tópico (Kafka Log Size)",
+      "title": "Tamanho dos Logs por Tópico",
       "type": "timeseries"
     },
     {
@@ -283,7 +293,7 @@
         "type": "prometheus",
         "uid": "${datasource}"
       },
-      "description": "Demonstra os tópicos agrupados por consumer groups que apresentam OffsetLag, indicando atraso no processamento das mensagens.\n\nAs lacunas nos grafico, são os momentos em que não existe consumidor conectado naquele consumer group",
+      "description": "Demonstra os tópicos agrupados por consumer groups que apresentam OffsetLag, indicando atraso no processamento das mensagens.\n\nAs lacunas no gráfico são os momentos em que não existe consumidor conectado naquele consumer group",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -338,10 +348,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 19
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 12
       },
       "id": 1,
       "options": {
@@ -450,10 +460,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 10,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 22
       },
       "id": 2,
       "options": {
@@ -483,7 +493,7 @@
           "refId": "A"
         }
       ],
-      "title": "LogEndOffset - Taxa de escrita",
+      "title": "Taxa de Escrita (LogEndOffset)",
       "type": "timeseries"
     }
   ],
@@ -494,7 +504,7 @@
     "list": [
       {
         "current": {},
-        "label": "Data source",
+        "label": "Fonte de dados",
         "name": "datasource",
         "options": [],
         "query": "prometheus",
@@ -513,7 +523,7 @@
         "definition": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
         "hide": 1,
         "includeAll": false,
-        "label": "topic",
+        "label": "Tópico",
         "multi": true,
         "name": "topic",
         "options": [],
@@ -536,7 +546,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "All-Topics",
+  "title": "Todos os Tópicos Kafka",
   "uid": "fehq4smphq4u8f",
-  "version": 12
+  "version": 13
 }
