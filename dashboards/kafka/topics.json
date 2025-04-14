@@ -26,6 +26,7 @@
         "type": "prometheus",
         "uid": "${datasource}"
       },
+      "description": "Mostra a taxa de mensagens recebidas por segundo em cada tópico Kafka (Métrica: MessagesInPerSec). Útil para identificar picos de produção ou problemas nos produtores.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -50,7 +51,6 @@
         "y": 0
       },
       "id": 4,
-      
       "pluginVersion": "11.6.0",
       "targets": [
         {
@@ -71,7 +71,71 @@
           "sort": "desc"
         },
         "legend": {
-          "calcs": ["last", "max"],
+          "calcs": [
+            "last",
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "Mostra a taxa de bytes recebidos por segundo em cada tópico Kafka (Métrica: BytesInPerSec). Útil para monitorar o volume de dados ingressantes.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "showPoints": "always",
+            "spanNulls": false
+          },
+          "mappings": [],
+          "unit": "Bps" 
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 6, 
+        "y": 0
+      },
+      "id": 6,  
+      "pluginVersion": "11.6.0",
+      "targets": [
+        {
+          "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic=~\"$topic\"}[1m]))",
+          "format": "time_series",
+          "legendFormat": "{{topic}}",
+          "range": true,
+          "refId": "A",
+          "step": "60"
+        }
+      ],
+      "title": "Bytes In Per Sec",
+      "type": "timeseries",
+      "options": {
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "calcs": [
+            "last",
+            "max"
+          ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -92,25 +156,13 @@
           "custom": {
             "drawStyle": "line",
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 2,
             "pointSize": 3,
-            "showPoints": "always",
-            "spanNulls": false
+            "showPoints": "auto",
+            "spanNulls": true
           },
           "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "decbytes"
+          "unit": "ops"
         },
         "overrides": []
       },
@@ -214,7 +266,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 1,
       "options": {
