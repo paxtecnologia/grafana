@@ -16,7 +16,12 @@ RUN apk update && \
       vim \
       less \
       shadow \
-      openssh
+      openssh \
+      jq \
+      moreutils \
+      python3 \
+      py3-pip && \
+    ln -sf python3 /usr/bin/python
 
 # Cria grupo e usuário com shell bash
 RUN addgroup -g ${USER_GID} ${USERNAME} && \
