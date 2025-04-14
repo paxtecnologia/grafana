@@ -17,7 +17,7 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
+  "graphTooltip": 2,
   "id": 5,
   "links": [],
   "panels": [
@@ -32,54 +32,25 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "fill": 0,
-            "points": false,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
+            "drawStyle": "line",
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointradius": 2,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "pointSize": 3,
+            "showPoints": "always",
+            "spanNulls": false
           },
           "mappings": []
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 10,
         "w": 6,
         "x": 0,
         "y": 0
       },
       "id": 4,
-      "legend": {
-        "calcs": [],
-        "displayMode": "list",
-        "placement": "bottom",
-        "showLegend": true
-      },
+      
       "pluginVersion": "11.6.0",
       "targets": [
         {
@@ -93,10 +64,18 @@
       ],
       "title": "Messages In Per Sec",
       "type": "timeseries",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
+      "options": {
+        "tooltip": {
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "calcs": ["last", "max"],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
       }
     },
     {
@@ -150,8 +129,9 @@
           "showLegend": true
         },
         "tooltip": {
-          "mode": "single",
-          "sort": "none"
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
         }
       },
       "pluginVersion": "11.6.0",
@@ -234,7 +214,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 0
       },
       "id": 1,
       "options": {
@@ -245,9 +225,9 @@
           "showLegend": true
         },
         "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
+          "hideZeros": true,
+          "mode": "multi",
+          "sort": "desc"
         }
       },
       "pluginVersion": "11.6.0",
@@ -262,7 +242,6 @@
           "expr": "sum by (topic, groupId) (\n  kafka_consumer_group_ConsumerLagMetrics_Value{name=\"OffsetLag\",topic=~\"$topic\"}\n)",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "__auto",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -358,9 +337,9 @@
           "showLegend": true
         },
         "tooltip": {
-          "hideZeros": false,
+          "hideZeros": true,
           "mode": "single",
-          "sort": "none"
+          "sort": "desc"
         }
       },
       "pluginVersion": "11.6.0",
@@ -372,7 +351,7 @@
           },
           "editorMode": "code",
           "expr": "sum by (topic) (rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=~\"$topic\"}[5m]))",
-          "legendFormat": "__auto",
+          "legendFormat": "{{topic}}",
           "range": true,
           "refId": "A"
         }
@@ -414,7 +393,8 @@
         "query": {
           "qryType": 1,
           "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          "refId": "PrometheusVariableQueryEditor-VariableQuery",
+          "legendFormat": "{{topic}}"
         },
         "refresh": 2,
         "regex": "",
