@@ -1589,6 +1589,21 @@
     "refresh": "",
     "schemaVersion": 41,
     "tags": [],
+    "templating": {
+        "list": [
+          {
+            "current": {},
+            "label": "Data source",
+            "name": "datasource",
+            "options": [],
+            "query": "prometheus",
+            "allowCustom": false,
+            "refresh": 1,
+            "regex": "",
+            "type": "datasource"
+          }
+        ]
+      },
     "time": {
       "from": "now-5m",
       "to": "now"
