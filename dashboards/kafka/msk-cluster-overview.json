@@ -18,7 +18,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
-    "id": 9,
+    "id": 13,
     "links": [],
     "panels": [
       {
@@ -1589,9 +1589,6 @@
     "refresh": "",
     "schemaVersion": 41,
     "tags": [],
-    "templating": {
-      "list": []
-    },
     "time": {
       "from": "now-5m",
       "to": "now"
@@ -1600,5 +1597,5 @@
     "timezone": "",
     "title": "MSK Cluster Overview",
     "uid": "LYTrcYwZz",
-    "version": 1
+    "version": 4
   }
