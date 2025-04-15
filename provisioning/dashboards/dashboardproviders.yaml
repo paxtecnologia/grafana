@@ -3,7 +3,7 @@ apiVersion: 1
 providers:
   - name: 'msk-all-topics'
     orgId: 1
-    folder: ''
+    folder: 'Kafka'
     type: file
     disableDeletion: false
     editable: true
