@@ -37,7 +37,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -114,7 +114,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -189,7 +189,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -266,7 +266,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -342,7 +342,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -418,7 +418,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -494,7 +494,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -570,7 +570,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -678,7 +678,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -775,7 +775,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -870,7 +870,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -965,7 +965,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -1062,7 +1062,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -1170,7 +1170,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -1296,7 +1296,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -1379,7 +1379,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "aehmxqn43zjeod"
+              "uid": "${datasource}"
             },
             "expr": "sum(kafka_network_RequestMetrics_OneMinuteRate{name=\"RequestsPerSec\"  }) by (instance)",
             "legendFormat": "{{instance}}",
@@ -1392,7 +1392,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -1478,7 +1478,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "aehmxqn43zjeod"
+              "uid": "${datasource}"
             },
             "expr": "sum(kafka_network_Processor_Value{name=\"IdlePercent\"}) by (instance)",
             "legendFormat": "{{instance}}",
@@ -1491,7 +1491,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "aehmxqn43zjeod"
+          "uid": "${datasource}"
         },
         "fieldConfig": {
           "defaults": {
@@ -1574,7 +1574,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "aehmxqn43zjeod"
+              "uid": "${datasource}"
             },
             "expr": "sum(kafka_network_RequestMetrics_OneMinuteRate{name=\"ErrorsPerSec\"  }) by (instance)",
             "legendFormat": "{{instance}}",
