@@ -1,0 +1,23 @@
+apiVersion: 1
+
+providers:
+  - name: 'msk-all-topics'
+    orgId: 1
+    folder: ''
+    type: file
+    disableDeletion: false
+    editable: true
+    updateIntervalSeconds: 1
+    options:
+      path: /etc/grafana/dashboards/kafka
+      foldersFromFilesStructure: true
+  - name: 'msk-overview'
+    orgId: 1
+    folder: ''
+    type: file
+    disableDeletion: false
+    editable: true
+    updateIntervalSeconds: 1
+    options:
+      path: /etc/grafana/dashboards/kafka
+      foldersFromFilesStructure: true
