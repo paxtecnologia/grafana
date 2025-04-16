@@ -4,6 +4,7 @@
     "service": "grafana",
     "workspaceFolder": "/workspace",
     "remoteUser": "dev-user",
+    "initializeCommand":".devcontainer/scripts/start_socat.sh",
     "customizations": {
       "vscode": {
         "extensions": [
