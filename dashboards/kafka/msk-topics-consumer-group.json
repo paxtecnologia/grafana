@@ -74,7 +74,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -136,7 +135,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -198,7 +196,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -269,7 +266,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -332,7 +328,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -422,7 +417,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -490,7 +484,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -565,7 +558,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -643,7 +635,7 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
+                    "shared": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -651,11 +643,11 @@
             "pluginVersion": "11.6.0",
             "targets": [
                 {
-                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalProduceRequestsPerSec\", topic=\"$topic\"}[1m]))",
+                    "expr": "rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalProduceRequestsPerSec\", topic=\"$topic\"}[1m])",
                     "format": "time_series",
                     "interval": "60s",
                     "step": "60",
-                    "legendFormat": "{{topic}}",
+                    "legendFormat": "broker: {{instance}}",
                     "range": true,
                     "refId": "A"
                 }
@@ -705,7 +697,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -811,7 +802,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -929,8 +919,7 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
-                    "mode": "single",
+                    "mode": "multi",
                     "sort": "desc"
                 }
             },
@@ -945,7 +934,7 @@
                     "expr": "rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=\"$topic\"}[5m])",
                     "interval": "60s",
                     "step": "60",
-                    "legendFormat": "partition: {{partition}}",
+                    "legendFormat": "broker: {{instance}} - partition: {{partition}}",
                     "range": true,
                     "refId": "A"
                 }
@@ -1004,7 +993,6 @@
                     "showLegend": true
                 },
                 "tooltip": {
-                    "hideZeros": true,
                     "mode": "multi",
                     "sort": "desc"
                 }
@@ -1020,7 +1008,7 @@
                     "expr": "kafka_server_FetcherLagMetrics_Value{name=\"ConsumerLag\",topic=\"$topic\"}",
                     "interval": "60s",
                     "step": "60",
-                    "legendFormat": "partition: {{partition}}",
+                    "legendFormat": "broker: {{instance}} - partition: {{partition}}",
                     "range": true,
                     "refId": "A"
                 }
