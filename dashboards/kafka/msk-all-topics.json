@@ -84,6 +84,7 @@
                 {
                     "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\", topic=~\"$topic\"}[1m]))",
                     "format": "time_series",
+                    "interval": "60s",
                     "legendFormat": "{{topic}}",
                     "range": true,
                     "refId": "A",
@@ -145,6 +146,7 @@
                 {
                     "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic=~\"$topic\"}[1m]))",
                     "format": "time_series",
+                    "interval": "60s",
                     "legendFormat": "{{topic}}",
                     "range": true,
                     "refId": "A",
@@ -206,6 +208,7 @@
                 {
                     "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\", topic=~\"$topic\"}[1m]))",
                     "format": "time_series",
+                    "interval": "60s",
                     "legendFormat": "{{topic}}",
                     "range": true,
                     "refId": "A",
@@ -279,8 +282,10 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
+                    "interval": "60s",
                     "expr": "sum by (topic) (kafka_log_Log_Value{name=\"Size\",topic=~\"$topic\"})",
                     "legendFormat": "{{topic}}",
+                    "step": "60",
                     "range": true,
                     "refId": "A"
                 }
@@ -340,8 +345,10 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
+                    "interval": "60s",
                     "expr": "sum by (topic) (kafka_log_Log_Value{name=\"NumLogSegments\",topic=~\"$topic\"})",
                     "legendFormat": "{{topic}}",
+                    "step": "60",
                     "range": true,
                     "refId": "A"
                 }
@@ -424,6 +431,8 @@
                 {
                     "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"UnderReplicated\",topic=~\"$topic\"})",
                     "legendFormat": "{{topic}}",
+                    "interval": "60s",
+                    "step": "60",
                     "refId": "A"
                 }
             ],
@@ -496,6 +505,8 @@
                     "editorMode": "code",
                     "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"AtMinIsr\",topic=~\"$topic\"})",
                     "legendFormat": "{{topic}}",
+                    "interval": "60s",
+                    "step": "60",
                     "range": true,
                     "refId": "A"
                 }
@@ -569,6 +580,8 @@
                     "editorMode": "code",
                     "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"UnderMinIsr\",topic=~\"$topic\"})",
                     "legendFormat": "{{topic}}",
+                    "interval": "60s",
+                    "step": "60",
                     "range": true,
                     "refId": "A"
                 }
@@ -641,6 +654,8 @@
                     "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalProduceRequestsPerSec\", topic=~\"$topic\"}[1m]))",
                     "format": "time_series",
                     "legendFormat": "{{topic}}",
+                    "step": "60",
+                    "interval": "60s",
                     "range": true,
                     "refId": "A"
                 }
@@ -701,6 +716,8 @@
                     "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalFetchRequestsPerSec\", topic=~\"$topic\"}[1m]))",
                     "format": "time_series",
                     "legendFormat": "{{topic}}",
+                    "interval": "60s",
+                    "step": "60",
                     "range": true,
                     "refId": "A"
                 }
@@ -810,6 +827,8 @@
                     "editorMode": "code",
                     "expr": "sum by (topic, groupId) (\n  kafka_consumer_group_ConsumerLagMetrics_Value{name=\"OffsetLag\",topic=~\"$topic\"}\n)",
                     "fullMetaSearch": false,
+                    "interval": "60s",
+                    "step": "60",
                     "includeNullMetadata": true,
                     "range": true,
                     "refId": "A",
@@ -933,6 +952,8 @@
                     "editorMode": "code",
                     "expr": "sum by (topic) (rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=~\"$topic\"}[5m]))",
                     "legendFormat": "{{topic}}",
+                    "step": "60",
+                    "interval": "60s",
                     "range": true,
                     "refId": "A"
                 }
@@ -1006,6 +1027,8 @@
                     "editorMode": "code",
                     "expr": "sum by (topic) (kafka_server_FetcherLagMetrics_Value{name=\"ConsumerLag\",topic=~\"$topic\"})",
                     "legendFormat": "{{topic}}",
+                    "interval": "60s",
+                    "step": "60",
                     "range": true,
                     "refId": "A"
                 }
