@@ -837,7 +837,6 @@
                 }
             ],
             "title": "OffsetLag - Mensagens Pendentes",
-            
             "type": "timeseries"
         },
         {
@@ -1033,9 +1032,10 @@
     "preload": false,
     "schemaVersion": 41,
     "tags": [
+        "consumer-group",
         "msk",
         "kafka"
-      ],
+    ],
     "templating": {
         "list": [
             {
@@ -1107,7 +1107,7 @@
     },
     "timepicker": {},
     "timezone": "browser",
-    "title": "Tópico Kafka",
+    "title": "Tópico Kafka por consumer group",
     "uid": "fehe4smphq6u6f",
     "version": 1
 }
