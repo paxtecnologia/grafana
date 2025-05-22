@@ -169,10 +169,7 @@
     "list": [
       {
         "allowCustomValue": false,
-        "current": {
-          "text": "LokiABS",
-          "value": "P4FE309DCF511BF50"
-        },
+        "current": {},
         "label": "loki",
         "name": "datasource",
         "options": [],
@@ -183,10 +180,7 @@
       },
       {
         "allowCustomValue": false,
-        "current": {
-          "text": "l4-mntg-loki-log",
-          "value": "l4-mntg-loki-log"
-        },
+        "current": {},
         "datasource": {
           "type": "loki",
           "uid": "${datasource}"
@@ -208,10 +202,7 @@
       },
       {
         "allowCustomValue": false,
-        "current": {
-          "text": "loki",
-          "value": "loki"
-        },
+        "current": {},
         "datasource": {
           "type": "loki",
           "uid": "${datasource}"
