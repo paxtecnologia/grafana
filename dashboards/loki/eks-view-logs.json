@@ -140,9 +140,9 @@
         "prettifyLogMessage": false,
         "showCommonLabels": false,
         "showLabels": false,
-        "showTime": false,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "pluginVersion": "11.6.0",
       "targets": [
