@@ -340,7 +340,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "avg by (partition) (kafka_log_Log_Value{name=\"NumLogSegments\",topic=\"$topic\"})",
+                    "expr": "avg by (partition) (kafka_log_Log_Value{name=\"NumLogSegments\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "partition: {{partition}}",
                     "interval": "60s",
                     "step": "60",
@@ -423,7 +423,7 @@
             },
             "targets": [
                 {
-                    "expr": "kafka_cluster_Partition_Value{name=\"UnderReplicated\",topic=\"$topic\"}",
+                    "expr": "kafka_cluster_Partition_Value{name=\"UnderReplicated\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\"}",
                     "legendFormat": "broker: {{instance}} - partition: {{partition}}",
                     "interval": "60s",
                     "step": "60",
@@ -496,7 +496,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "kafka_cluster_Partition_Value{name=\"AtMinIsr\",topic=\"$topic\"}",
+                    "expr": "kafka_cluster_Partition_Value{name=\"AtMinIsr\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\"}",
                     "legendFormat": "broker: {{instance}} - partition: {{partition}}",
                     "interval": "60s",
                     "step": "60",
@@ -570,7 +570,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "kafka_cluster_Partition_Value{name=\"UnderMinIsr\",topic=\"$topic\"}",
+                    "expr": "kafka_cluster_Partition_Value{name=\"UnderMinIsr\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\"}",
                     "legendFormat": "broker: {{instance}} - partition: {{partition}}",
                     "interval": "60s",
                     "step": "60",
@@ -815,7 +815,7 @@
                     },
                     "disableTextWrap": false,
                     "editorMode": "code",
-                    "expr": "kafka_consumer_group_ConsumerLagMetrics_Value{name=\"OffsetLag\",topic=\"$topic\", groupId=\"$groupId\"}",
+                    "expr": "kafka_consumer_group_ConsumerLagMetrics_Value{name=\"OffsetLag\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\", groupId=\"$groupId\"}",
                     "fullMetaSearch": false,
                     "interval": "60s",
                     "step": "60",
@@ -931,7 +931,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=\"$topic\"}[5m])",
+                    "expr": "rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\"}[5m])",
                     "interval": "60s",
                     "step": "60",
                     "legendFormat": "broker: {{instance}} - partition: {{partition}}",
@@ -1005,7 +1005,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "kafka_server_FetcherLagMetrics_Value{name=\"ConsumerLag\",topic=\"$topic\"}",
+                    "expr": "kafka_server_FetcherLagMetrics_Value{name=\"ConsumerLag\",topic=\"$topic\",instance=~\"(.*)$instance(.*)\"}",
                     "interval": "60s",
                     "step": "60",
                     "legendFormat": "broker: {{instance}} - partition: {{partition}}",
@@ -1039,12 +1039,35 @@
             },
             {
                 "allowCustomValue": false,
+                "current": "All",
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "${datasource}"
+                },
+                "definition": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},instance)",
+                "includeAll": true,
+                "label": "instance",
+                "multi": true,
+                "name": "instance",
+                "options": [],
+                "query": {
+                    "qryType": 1,
+                    "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},instance)",
+                    "refId": "PrometheusVariableQueryEditor-VariableQuery",
+                    "legendFormat": "{{instance}}"
+                },
+                "refresh": 2,
+                "regex": "/\\.([^:]+)/",
+                "sort": 1,
+                "type": "query"
+            },
+            {
+                "allowCustomValue": false,
                 "current": {},
                 "datasource": {
                     "type": "prometheus",
                     "uid": "${datasource}"
                 },
-                "definition": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
                 "hide": 1,
                 "includeAll": false,
                 "label": "Tópico",
@@ -1053,7 +1076,7 @@
                 "options": [],
                 "query": {
                     "qryType": 1,
-                    "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
+                    "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\",instance=~\"(.*)$instance(.*)\"},topic)",
                     "refId": "PrometheusVariableQueryEditor-VariableQuery",
                     "legendFormat": "{{topic}}"
                 },
@@ -1069,7 +1092,6 @@
                     "type": "prometheus",
                     "uid": "${datasource}"
                 },
-                "definition": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
                 "hide": 1,
                 "includeAll": false,
                 "label": "ConsumerGroup",
@@ -1078,7 +1100,7 @@
                 "options": [],
                 "query": {
                     "qryType": 1,
-                    "query": "label_values(kafka_consumer_group_ConsumerLagMetrics_Value{topic=\"$topic\"},groupId)",
+                    "query": "label_values(kafka_consumer_group_ConsumerLagMetrics_Value{topic=\"$topic\",instance=~\"(.*)$instance(.*)\"},groupId)",
                     "refId": "PrometheusVariableQueryEditor-VariableQuery",
                     "legendFormat": "{{groupId}}"
                 },

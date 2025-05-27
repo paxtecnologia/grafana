@@ -82,7 +82,7 @@
             "pluginVersion": "11.6.0",
             "targets": [
                 {
-                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\", topic=~\"$topic\"}[1m]))",
+                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}[1m]))",
                     "format": "time_series",
                     "interval": "60s",
                     "legendFormat": "{{topic}}",
@@ -144,7 +144,7 @@
             "pluginVersion": "11.6.0",
             "targets": [
                 {
-                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic=~\"$topic\"}[1m]))",
+                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}[1m]))",
                     "format": "time_series",
                     "interval": "60s",
                     "legendFormat": "{{topic}}",
@@ -206,7 +206,7 @@
             "pluginVersion": "11.6.0",
             "targets": [
                 {
-                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\", topic=~\"$topic\"}[1m]))",
+                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}[1m]))",
                     "format": "time_series",
                     "interval": "60s",
                     "legendFormat": "{{topic}}",
@@ -283,7 +283,7 @@
                     },
                     "editorMode": "code",
                     "interval": "60s",
-                    "expr": "sum by (topic) (kafka_log_Log_Value{name=\"Size\",topic=~\"$topic\"})",
+                    "expr": "sum by (topic) (kafka_log_Log_Value{name=\"Size\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "{{topic}}",
                     "step": "60",
                     "range": true,
@@ -346,7 +346,7 @@
                     },
                     "editorMode": "code",
                     "interval": "60s",
-                    "expr": "sum by (topic) (kafka_log_Log_Value{name=\"NumLogSegments\",topic=~\"$topic\"})",
+                    "expr": "sum by (topic) (kafka_log_Log_Value{name=\"NumLogSegments\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "{{topic}}",
                     "step": "60",
                     "range": true,
@@ -429,7 +429,7 @@
             },
             "targets": [
                 {
-                    "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"UnderReplicated\",topic=~\"$topic\"})",
+                    "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"UnderReplicated\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "{{topic}}",
                     "interval": "60s",
                     "step": "60",
@@ -503,7 +503,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"AtMinIsr\",topic=~\"$topic\"})",
+                    "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"AtMinIsr\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "{{topic}}",
                     "interval": "60s",
                     "step": "60",
@@ -578,7 +578,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"UnderMinIsr\",topic=~\"$topic\"})",
+                    "expr": "sum by (topic) (kafka_cluster_Partition_Value{name=\"UnderMinIsr\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "{{topic}}",
                     "interval": "60s",
                     "step": "60",
@@ -651,7 +651,7 @@
             "pluginVersion": "11.6.0",
             "targets": [
                 {
-                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalProduceRequestsPerSec\", topic=~\"$topic\"}[1m]))",
+                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalProduceRequestsPerSec\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}[1m]))",
                     "format": "time_series",
                     "legendFormat": "{{topic}}",
                     "step": "60",
@@ -713,7 +713,7 @@
             "pluginVersion": "11.6.0",
             "targets": [
                 {
-                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalFetchRequestsPerSec\", topic=~\"$topic\"}[1m]))",
+                    "expr": "sum by(topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"TotalFetchRequestsPerSec\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}[1m]))",
                     "format": "time_series",
                     "legendFormat": "{{topic}}",
                     "interval": "60s",
@@ -825,7 +825,7 @@
                     },
                     "disableTextWrap": false,
                     "editorMode": "code",
-                    "expr": "sum by (topic, groupId) (\n  kafka_consumer_group_ConsumerLagMetrics_Value{name=\"OffsetLag\",topic=~\"$topic\"}\n)",
+                    "expr": "sum by (topic, groupId) (\n  kafka_consumer_group_ConsumerLagMetrics_Value{name=\"OffsetLag\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}\n)",
                     "fullMetaSearch": false,
                     "interval": "60s",
                     "step": "60",
@@ -950,7 +950,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum by (topic) (rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=~\"$topic\"}[5m]))",
+                    "expr": "sum by (topic) (rate(kafka_log_Log_Value{name=\"LogEndOffset\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"}[5m]))",
                     "legendFormat": "{{topic}}",
                     "step": "60",
                     "interval": "60s",
@@ -1025,7 +1025,7 @@
                         "uid": "${datasource}"
                     },
                     "editorMode": "code",
-                    "expr": "sum by (topic) (kafka_server_FetcherLagMetrics_Value{name=\"ConsumerLag\",topic=~\"$topic\"})",
+                    "expr": "sum by (topic) (kafka_server_FetcherLagMetrics_Value{name=\"ConsumerLag\",topic=~\"$topic\",instance=~\"(.*)$instance(.*)\"})",
                     "legendFormat": "{{topic}}",
                     "interval": "60s",
                     "step": "60",
@@ -1042,7 +1042,7 @@
     "tags": [
         "msk",
         "kafka"
-      ],
+    ],
     "templating": {
         "list": [
             {
@@ -1063,8 +1063,30 @@
                     "type": "prometheus",
                     "uid": "${datasource}"
                 },
-                "definition": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
-                "hide": 1,
+                "includeAll": true,
+                "label": "instance",
+                "multi": true,
+                "name": "instance",
+                "options": [],
+                "query": {
+                    "qryType": 1,
+                    "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},instance)",
+                    "refId": "PrometheusVariableQueryEditor-VariableQuery",
+                    "legendFormat": "{{instance}}"
+                },
+                "refresh": 2,
+                "regex": "/\\.([^:]+)/",
+                "sort": 1,
+                "type": "query"
+            },
+            {
+                "allowCustomValue": false,
+                "current": "All",
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "${datasource}"
+                },
+                "definition": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\",instance=~\"(.*)$instance(.*)\"},topic)",
                 "includeAll": true,
                 "label": "Tópico",
                 "multi": true,
@@ -1072,7 +1094,7 @@
                 "options": [],
                 "query": {
                     "qryType": 1,
-                    "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\"},topic)",
+                    "query": "label_values(kafka_log_Log_Value{topic!~\"__amazon_msk_canary|__consumer_offsets\",instance=~\"(.*)$instance(.*)\"},topic)",
                     "refId": "PrometheusVariableQueryEditor-VariableQuery",
                     "legendFormat": "{{topic}}"
                 },

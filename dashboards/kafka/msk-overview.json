@@ -37,9 +37,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -123,7 +123,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\",topic!=\"\", topic!~\"__amazon_msk_canary|__consumer_offsets\"}[1m]))",
+          "expr": "sum by (topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"MessagesInPerSec\",topic!=\"\", topic!~\"__amazon_msk_canary|__consumer_offsets\",instance=~\"(.*)$instance(.*)\"}[1m]))",
           "interval": "",
           "legendFormat": "{{topic}}",
           "refId": "A"
@@ -134,9 +134,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -220,7 +220,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic!=\"\",topic!~\"__amazon_msk_canary|__consumer_offsets\"}[1m]))",
+          "expr": "sum by (topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesInPerSec\", topic!=\"\",topic!~\"__amazon_msk_canary|__consumer_offsets\",instance=~\"(.*)$instance(.*)\"}[1m]))",
           "interval": "",
           "legendFormat": "{{topic}}",
           "refId": "A"
@@ -231,9 +231,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -317,7 +317,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\", topic!=\"\",topic!~\"__amazon_msk_canary|__consumer_offsets\"}[1m]))",
+          "expr": "sum by (topic) (rate(kafka_server_BrokerTopicMetrics_Count{name=\"BytesOutPerSec\", topic!=\"\",topic!~\"__amazon_msk_canary|__consumer_offsets\",instance=~\"(.*)$instance(.*)\"}[1m]))",
           "interval": "",
           "legendFormat": "{{topic}}",
           "refId": "A"
@@ -341,9 +341,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -427,7 +427,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (instance) (kafka_server_ReplicaManager_Value{name=\"UnderReplicatedPartitions\"})",
+          "expr": "sum by (instance) (kafka_server_ReplicaManager_Value{name=\"UnderReplicatedPartitions\",instance=~\"(.*)$instance(.*)\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -439,9 +439,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -525,7 +525,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "kafka_server_ReplicaManager_Value{name=\"UnderMinIsrPartitionCount\"}",
+          "expr": "kafka_server_ReplicaManager_Value{name=\"UnderMinIsrPartitionCount\",instance=~\"(.*)$instance(.*)\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -537,9 +537,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -623,7 +623,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "kafka_server_ReplicaManager_Value{name=\"PartitionCount\"}",
+          "expr": "kafka_server_ReplicaManager_Value{name=\"PartitionCount\",instance=~\"(.*)$instance(.*)\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -635,9 +635,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -721,7 +721,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (instance)(rate(kafka_network_RequestMetrics_Count{name=\"RequestsPerSec\", request=~\"Produce|FetchConsumer|FetchFollower\"}[5m]))",
+          "expr": "sum by (instance)(rate(kafka_network_RequestMetrics_Count{name=\"RequestsPerSec\", request=~\"Produce|FetchConsumer|FetchFollower\",instance=~\"(.*)$instance(.*)\"}[5m]))",
           "hide": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -733,9 +733,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -819,7 +819,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (instance,error)(rate(kafka_network_RequestMetrics_Count{name=\"ErrorsPerSec\", error!=\"NONE\"}[5m]))",
+          "expr": "sum by (instance,error)(rate(kafka_network_RequestMetrics_Count{name=\"ErrorsPerSec\", error!=\"NONE\",instance=~\"(.*)$instance(.*)\"}[5m]))",
           "interval": "",
           "legendFormat": "{{instance}} - {{error}}",
           "refId": "B"
@@ -843,9 +843,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -929,7 +929,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "node_filesystem_avail_bytes{mountpoint=\"/kafka/datalogs\"}",
+          "expr": "node_filesystem_avail_bytes{mountpoint=\"/kafka/datalogs\",instance=~\"(.*)$instance(.*)\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -941,9 +941,9 @@
     },
     {
       "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1027,7 +1027,7 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "expr": "sum by (instance, mode) (rate(node_cpu_seconds_total[5m]))",
+          "expr": "sum by (instance, mode) (rate(node_cpu_seconds_total{instance=~\"(.*)$instance(.*)\"}[5m]))",
           "hide": false,
           "interval": "",
           "legendFormat": "{{mode}} - {{instance}}",
@@ -1057,6 +1057,29 @@
         "refresh": 1,
         "regex": "",
         "type": "datasource"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "includeAll": false,
+        "label": "instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(kafka_log_Log_Value{},instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery",
+          "legendFormat": "{{instance}}"
+        },
+        "refresh": 2,
+        "regex": "/\\.([^:]+)/",
+        "sort": 1,
+        "type": "query"
       }
     ]
   },
