@@ -166,7 +166,10 @@
   ],
   "preload": false,
   "schemaVersion": 41,
-  "tags": [],
+  "tags": [
+    "loki",
+    "logs"
+  ],
   "templating": {
     "list": [
       {
@@ -272,5 +275,5 @@
   "timezone": "browser",
   "title": "EKS Loki View Logs",
   "uid": "aemoflkjzylfke",
-  "version": 34
+  "version": 35
 }
