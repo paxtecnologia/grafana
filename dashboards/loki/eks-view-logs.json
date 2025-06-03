@@ -232,7 +232,7 @@
           "stream": "{namespace=\"$namespace\"}",
           "type": 1
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "sort": 1,
         "type": "query"
@@ -275,5 +275,5 @@
   "timezone": "browser",
   "title": "EKS Loki View Logs",
   "uid": "aemoflkjzylfke",
-  "version": 35
+  "version": 36
 }
