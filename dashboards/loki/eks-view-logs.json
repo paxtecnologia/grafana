@@ -174,10 +174,7 @@
     "list": [
       {
         "allowCustomValue": false,
-        "current": {
-          "text": "LokiABS",
-          "value": "P4FE309DCF511BF50"
-        },
+        "current": {},
         "label": "loki",
         "name": "datasource",
         "options": [],
@@ -188,24 +185,16 @@
       },
       {
         "allowCustomValue": false,
-        "current": {
-          "text": "istio-system",
-          "value": "istio-system"
-        },
+        "current": {},
         "datasource": {
           "type": "loki",
           "uid": "${datasource}"
         },
-        "definition": "",
+        "definition": "label_values({}, namespace)",
         "label": "namespace",
         "name": "namespace",
         "options": [],
-        "query": {
-          "label": "namespace",
-          "refId": "LokiVariableQueryEditor-VariableQuery",
-          "stream": "",
-          "type": 1
-        },
+        "query": "label_values({}, namespace)",
         "refresh": 1,
         "regex": "",
         "sort": 1,
@@ -213,25 +202,17 @@
       },
       {
         "allowCustomValue": false,
-        "current": {
-          "text": "istiod",
-          "value": "istiod"
-        },
+        "current": {},
         "datasource": {
           "type": "loki",
           "uid": "${datasource}"
         },
-        "definition": "",
+        "definition": "label_values({namespace=\"$namespace\"}, service_name)",
         "description": "",
         "label": "service_name",
         "name": "service_name",
         "options": [],
-        "query": {
-          "label": "service_name",
-          "refId": "LokiVariableQueryEditor-VariableQuery",
-          "stream": "{namespace=\"$namespace\"}",
-          "type": 1
-        },
+        "query": "label_values({namespace=\"$namespace\"}, service_name)",
         "refresh": 2,
         "regex": "",
         "sort": 1,
@@ -275,5 +256,5 @@
   "timezone": "browser",
   "title": "EKS Loki View Logs",
   "uid": "aemoflkjzylfke",
-  "version": 36
+  "version": 37
 }
