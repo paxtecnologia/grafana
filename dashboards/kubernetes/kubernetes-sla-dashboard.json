@@ -19,6 +19,7 @@
       {
         "id": 2,
         "title": "Worker Nodes SLA",
+        "description": "Availability percentage of worker nodes in Ready state. Shows the uptime of each node in the cluster over the selected time range.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -108,6 +109,7 @@
       {
         "id": 5,
         "title": "Service Discovery SLA",
+        "description": "Availability of DNS services (CoreDNS/kube-dns). Critical for service discovery and pod-to-pod communication within the cluster.",
         "type": "stat",
         "datasource": {
           "type": "prometheus",
@@ -127,7 +129,9 @@
         ],
         "fieldConfig": {
           "defaults": {
+            "unit": "percent",
             "thresholds": {
+              "mode": "absolute",
               "steps": [
                 {"color": "red", "value": 0},
                 {"color": "yellow", "value": 95},
@@ -135,6 +139,11 @@
               ]
             }
           }
+        },
+        "options": {
+          "graphMode": "none",
+          "colorMode": "background",
+          "textMode": "value"
         }
       },
       {
@@ -152,6 +161,7 @@
       {
         "id": 1,
         "title": "POD SLA - Availability",
+        "description": "Percentage of pods in Ready state per namespace. Indicates the health and availability of applications running in each namespace.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -159,7 +169,7 @@
         },
         "gridPos": {
           "h": 8,
-          "w": 24,
+          "w": 12,
           "x": 0,
           "y": 10
         },
@@ -189,6 +199,18 @@
               "include": {
                 "names": ["Namespace", "Availability %"]
               }
+            }
+          },
+          {
+            "id": "sortBy",
+            "options": {
+              "fields": {},
+              "sort": [
+                {
+                  "field": "Namespace",
+                  "desc": false
+                }
+              ]
             }
           }
         ],
@@ -239,8 +261,110 @@
         }
       },
       {
+        "id": 6,
+        "title": "Workload Replica Availability",
+        "description": "Percentage of desired replicas that are available for Deployments and StatefulSets per namespace. Shows if workloads have the expected number of running replicas.",
+        "type": "table",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 10
+        },
+        "targets": [
+          {
+            "expr": "(sum by (namespace) (kube_deployment_status_replicas_available{namespace=~\"$namespace\"}) / sum by (namespace) (kube_deployment_spec_replicas{namespace=~\"$namespace\"})) * 100 or (sum by (namespace) (kube_statefulset_status_replicas_ready{namespace=~\"$namespace\"}) / sum by (namespace) (kube_statefulset_replicas{namespace=~\"$namespace\"})) * 100",
+            "legendFormat": "{{namespace}}",
+            "format": "table",
+            "instant": true
+          }
+        ],
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {},
+              "indexByName": {},
+              "renameByName": {
+                "namespace": "Namespace",
+                "Value": "Replica Availability %"
+              }
+            }
+          },
+          {
+            "id": "filterFieldsByName",
+            "options": {
+              "include": {
+                "names": ["Namespace", "Replica Availability %"]
+              }
+            }
+          },
+          {
+            "id": "sortBy",
+            "options": {
+              "fields": {},
+              "sort": [
+                {
+                  "field": "Namespace",
+                  "desc": false
+                }
+              ]
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "left",
+              "displayMode": "table",
+              "inspect": false,
+              "filterable": true
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Replica Availability %"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "custom.align",
+                  "value": "right"
+                },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {"color": "red", "value": 0},
+                      {"color": "yellow", "value": 95},
+                      {"color": "green", "value": 99}
+                    ]
+                  }
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "color-background"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
         "id": 102,
-        "title": "Ingress Level SLA",
+        "title": "HTTP Request Success Rate",
         "type": "row",
         "collapsed": false,
         "gridPos": {
@@ -252,7 +376,8 @@
       },
       {
         "id": 3,
-        "title": "Ingress Success Rate SLA",
+        "title": "HTTP Success Rate by Namespace",
+        "description": "Percentage of successful HTTP requests (2xx and 3xx status codes) per namespace. Measures the reliability of applications exposed through Ingress.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -290,6 +415,18 @@
               "include": {
                 "names": ["Namespace", "Success Rate %"]
               }
+            }
+          },
+          {
+            "id": "sortBy",
+            "options": {
+              "fields": {},
+              "sort": [
+                {
+                  "field": "Namespace",
+                  "desc": false
+                }
+              ]
             }
           }
         ],
