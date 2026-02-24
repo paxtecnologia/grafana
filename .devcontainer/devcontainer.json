@@ -11,7 +11,8 @@
             "grafana.vscode-grafana-datasource",
             "ms-azuretools.vscode-docker",
             "donjayamanne.githistory",
-            "mhutchie.git-graph"
+            "mhutchie.git-graph",
+            "amazonwebservices.amazon-q-vscode"
         ]
       }
     }

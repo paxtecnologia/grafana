@@ -1,5 +1,6 @@
 services:
   grafana:
+    hostname: grafana
     build:
       context: ..
       dockerfile: .devcontainer/grafana/Dockerfile
