@@ -1,12 +1,12 @@
 {
   "id": null,
-  "title": "Kubernetes SLA Dashboard",
+  "title": "Dashboard SLA Kubernetes",
   "tags": ["kubernetes", "sla"],
   "timezone": "browser",
   "panels": [
       {
         "id": 100,
-        "title": "Cluster Level SLA",
+        "title": "SLA Nível de Cluster",
         "type": "row",
         "collapsed": false,
         "gridPos": {
@@ -18,8 +18,8 @@
       },
       {
         "id": 2,
-        "title": "Worker Nodes SLA",
-        "description": "Availability percentage of worker nodes in Ready state. Shows the uptime of each node in the cluster over the selected time range.",
+        "title": "SLA dos Nós Workers",
+        "description": "Percentual de disponibilidade dos nós workers no estado Ready. Mostra o uptime de cada nó no cluster durante o período selecionado.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -108,8 +108,8 @@
       },
       {
         "id": 5,
-        "title": "Service Discovery SLA",
-        "description": "Availability of DNS services (CoreDNS/kube-dns). Critical for service discovery and pod-to-pod communication within the cluster.",
+        "title": "SLA de Descoberta de Serviços",
+        "description": "Disponibilidade dos serviços DNS (CoreDNS/kube-dns). Crítico para descoberta de serviços e comunicação pod-to-pod dentro do cluster.",
         "type": "stat",
         "datasource": {
           "type": "prometheus",
@@ -148,7 +148,7 @@
       },
       {
         "id": 101,
-        "title": "Namespace Level SLA",
+        "title": "SLA Nível de Namespace",
         "type": "row",
         "collapsed": false,
         "gridPos": {
@@ -160,8 +160,8 @@
       },
       {
         "id": 1,
-        "title": "POD SLA - Availability",
-        "description": "Percentage of pods in Ready state per namespace. Indicates the health and availability of applications running in each namespace.",
+        "title": "SLA de PODs - Disponibilidade",
+        "description": "Percentual de pods no estado Ready por namespace. Indica a saúde e disponibilidade das aplicações executando em cada namespace.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -262,8 +262,8 @@
       },
       {
         "id": 6,
-        "title": "Workload Replica Availability",
-        "description": "Percentage of desired replicas that are available for Deployments and StatefulSets per namespace. Shows if workloads have the expected number of running replicas.",
+        "title": "Disponibilidade de Réplicas de Workloads",
+        "description": "Percentual de réplicas desejadas que estão disponíveis para Deployments e StatefulSets por namespace. Mostra se os workloads têm o número esperado de réplicas em execução.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -364,7 +364,7 @@
       },
       {
         "id": 102,
-        "title": "HTTP Request Success Rate",
+        "title": "Taxa de Sucesso de Requisições HTTP",
         "type": "row",
         "collapsed": false,
         "gridPos": {
@@ -376,8 +376,8 @@
       },
       {
         "id": 3,
-        "title": "HTTP Success Rate by Namespace",
-        "description": "Percentage of successful HTTP requests (2xx and 3xx status codes) per namespace. Measures the reliability of applications exposed through Ingress.",
+        "title": "Taxa de Sucesso HTTP por Namespace",
+        "description": "Percentual de requisições HTTP bem-sucedidas (códigos de status 2xx e 3xx) por namespace. Mede a confiabilidade das aplicações expostas através do Ingress.",
         "type": "table",
         "datasource": {
           "type": "prometheus",
@@ -486,7 +486,7 @@
     "list": [
       {
         "current": {},
-        "label": "Data source",
+        "label": "Fonte de dados",
         "name": "datasource",
         "options": [],
         "query": "prometheus",
